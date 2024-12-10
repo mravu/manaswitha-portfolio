@@ -118,7 +118,6 @@ The application is designed to be **responsive** and **mobile-first**, ensuring 
 
 Testing is crucial for ensuring the reliability of the app. This project includes:
 - **Unit Tests**: For testing Vue components and utility functions using **Jest** and **Vue Test Utils**.
-- **End-to-End Tests**: Using **Playwright** to test the user journey and ensure the app works as expected across different devices and browsers.
 
 ---
 
@@ -137,13 +136,13 @@ This project is built with the following tools:
 - **Vite**: For fast build times and a smooth development experience.
 - **ESLint**: To maintain code quality with consistent style.
 - **Prettier**: For code formatting.
-- **Jest & Cypress**: For testing and CI integration.
+- **Jest & Vue Test Utils**: For testing and CI integration.
 
 ---
 
 ## Deployment
 
-The project is deployed using **Netlify** or **Vercel**, both of which provide easy integration with GitHub for continuous deployment.
+The project is deployed using **Netlify** which provide easy integration with GitHub for continuous deployment.
 
 1. **Build Process**: The app is built using `vite build` which optimizes the app for production.
 2. **Continuous Deployment (CI/CD)**: Every commit pushed to the `main` branch triggers a build and deployment automatically.
