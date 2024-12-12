@@ -1,6 +1,6 @@
 # Portfolio Project - README
 
-Welcome to my **Personal Portfolio** project! This project is a showcase of my professional experience, skills, and projects. It is built using modern web technologies and follows best practices to ensure a fast, responsive, and scalable web application. Below is a comprehensive breakdown of the project's architecture, structure, and design decisions.
+Welcome to my **Personal Portfolio** project! This project is a showcase of my professional experience, skills, and projects & Contact me page. It is built using modern web technologies and follows best practices to ensure a fast, responsive, and scalable web application. Below is a comprehensive breakdown of the project's architecture, structure, and design decisions.
 
 ---
 
