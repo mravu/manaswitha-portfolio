@@ -142,7 +142,7 @@ This project is built with the following tools:
 
 ## Deployment
 
-The project is deployed using **Netlify** which provide easy integration with GitHub for continuous deployment.
+This project i'm trying to deploy using **Netlify** which provide easy integration with GitHub for continuous deployment.
 
 1. **Build Process**: The app is built using `vite build` which optimizes the app for production.
 2. **Continuous Deployment (CI/CD)**: Every commit pushed to the `main` branch triggers a build and deployment automatically.
