@@ -1,6 +1,5 @@
 import { reactive, provide, inject } from 'vue';
 
-// Define the structure of your state and store
 interface AppState {
   theme: string;
   language: string;
@@ -14,7 +13,6 @@ interface AppStore {
   toggleAuthentication: () => void;
 }
 
-// Create the store and provide it globally
 export const provideAppStore = {
   install(app: any) {
     const state: AppState = reactive({
@@ -23,7 +21,6 @@ export const provideAppStore = {
       isAuthenticated: false,
     });
 
-    // Actions
     const setTheme = (theme: string) => {
       state.theme = theme;
       localStorage.setItem('theme', theme);
@@ -38,7 +35,6 @@ export const provideAppStore = {
       state.isAuthenticated = !state.isAuthenticated;
     };
 
-    // Provide the store globally
     app.provide('appStore', {
       state,
       setTheme,
@@ -48,7 +44,6 @@ export const provideAppStore = {
   },
 };
 
-// Helper function to inject the store into components
 export const useAppStore = (): AppStore => {
   const store = inject<AppStore>('appStore');
   if (!store) {

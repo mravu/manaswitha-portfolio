@@ -71,12 +71,12 @@
   }
   
   .image img {
-    width: 300px;  /* Specific width */
-    height: 300px; /* Specific height */
-    border-radius: 50%;  /* Makes the image round */
-    object-fit: cover;  /* Ensures the image covers the area without distorting */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  /* Soft shadow for effect */
-    border: 3px solid #fff;  /* Optional: White border around the image */
+    width: 300px;  
+    height: 300px; 
+    border-radius: 50%;  
+    object-fit: cover;  
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    border: 3px solid #fff;
   }
   </style>
   

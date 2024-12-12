@@ -49,7 +49,7 @@
   
   <script lang="ts">
   import { defineComponent, ref } from 'vue';
-  import axios from 'axios'; // Import Axios
+  import axios from 'axios';
   import { toast } from 'vue3-toastify';
   import 'vue3-toastify/dist/index.css';
   
@@ -72,7 +72,6 @@
       const isSubmitting = ref(false);
       const formStatus = ref<{ type: string; message: string } | null>(null);
   
-      // Basic form validation
       const validateForm = () => {
         errors.value.name = form.value.name ? '' : 'Name is required.';
         errors.value.email = form.value.email ? '' : 'Email is required.';
@@ -80,7 +79,6 @@
         return !Object.values(errors.value).some((error: string) => error !== '');
       };
   
-      // Handle form submission with Axios
       const handleSubmit = async () => {
         if (!validateForm()) return;
   
@@ -88,7 +86,6 @@
         formStatus.value = null;
   
         try {
-          // Replace the URL with your API endpoint
           const response = await axios.post('https://your-api-endpoint.com/contact', form.value, {
             headers: {
               'Content-Type': 'application/json',
@@ -101,7 +98,7 @@
               message: 'Your message has been sent successfully!',
             };
             toast('Your message has been sent successfully!');
-            form.value = { name: '', email: '', message: '' }; // Reset form
+            form.value = { name: '', email: '', message: '' };
           } else {
             throw new Error('Failed to send the message');
           }
@@ -132,18 +129,18 @@
   .contact-form {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers content horizontally */
-    justify-content: center; /* Centers content vertically */
+    align-items: center;
+    justify-content: center;
     margin-top: 100px;
     color: #052C58;
-    max-width: 600px; /* Restricts the form width */
+    max-width: 600px;
     margin-left: auto;
-    margin-right: auto; /* Centers the form horizontally */
+    margin-right: auto;
   }
   
   .form-group {
     margin-bottom: 15px;
-    width: 100%; /* Ensure that the form elements take full width */
+    width: 100%;
   }
   
   input, textarea {
@@ -155,7 +152,7 @@
   }
   
   button {
-    width: auto; /* Button width based on its content */
+    width: auto;
     padding: 10px 20px;
     background-color: #052C58;
     color: white;

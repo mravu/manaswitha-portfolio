@@ -1,6 +1,5 @@
 <template>
   <div id="app" :class="theme">
-    <!-- Header Section with Navigation Links and Theme Toggle -->
     <header>
       <nav>
         <div class="logo">
@@ -18,16 +17,12 @@
       </nav>
     </header>
 
-    <!-- Main Content Section -->
     <main>
-      <!-- Suspense to handle lazy-loaded routes -->
       <Suspense>
         <template #default>
-          <!-- Dynamic route rendering -->
           <router-view />
         </template>
         <template #fallback>
-          <!-- Fallback content when lazy-loaded components are being fetched -->
           <div>Loading...</div>
         </template>
       </Suspense>
@@ -46,23 +41,19 @@
 
 <script lang="ts">
 import { defineComponent ,computed} from 'vue';
-import { useAppStore } from '@/store/appStore'; // Import the global store
-
+import { useAppStore } from '@/store/appStore'; 
 export default defineComponent({
   name: 'App',
   setup() {
-    // Access the global store's state and methods
     const { state, setTheme } = useAppStore();
     const theme = computed(() => state.theme);
-    // Toggle the theme between 'light' and 'dark'
     const toggleTheme = () => {
       const newTheme = state.theme === 'light' ? 'dark' : 'light';
       setTheme(newTheme);
     };
 
-    // Return the theme and toggle function to be used in the template
     return {
-      theme, // Bind the theme to the root div
+      theme,
       toggleTheme,
     };
   },
@@ -70,7 +61,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -78,35 +68,31 @@ export default defineComponent({
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Background for light and dark themes */
 #app {
   display:flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #f0f2f4, #c9d7e7); /* Light blue gradient */
+  background: linear-gradient(135deg, #f0f2f4, #c9d7e7);
   color: #fff;
   transition: background 0.3s ease, color 0.3s ease;
   height: 100vh;
 }
 main {
-  flex: 1; /* This will make the main content grow to take available space */
+  flex: 1;
   background: linear-gradient(135deg, #f0f2f4, #c9d7e7); 
 }
 
-/* Light theme specific styles */
 #app.light {
-  background: linear-gradient(135deg, #7f9ebe, #84a2c4); /* Light blue gradient */
+  background: linear-gradient(135deg, #7f9ebe, #84a2c4);
   color: #fff;
 }
 
-/* Dark theme specific styles */
 #app.dark {
-  background: linear-gradient(135deg, #020a15, #01080f); /* Dark blue gradient */
+  background: linear-gradient(135deg, #020a15, #01080f);
   color: #f0f0f0;
 }
 
-/* Header Styles */
 header {
-  background-color: rgba(5, 44, 88, 0.6); /* Semi-transparent black */
+  background-color: rgba(5, 44, 88, 0.6);
   padding: 20px 0;
 }
 
@@ -150,9 +136,8 @@ nav {
   color: #f9a825;
 }
 
-/* Footer Styles */
 footer {
-  background-color: rgba(5, 44, 88, 0.6); /* Dark footer background */
+  background-color: rgba(5, 44, 88, 0.6);
   color: #fff;
   text-align: center;
   padding: 20px;
@@ -178,7 +163,6 @@ footer p {
   text-decoration: underline;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;

@@ -45,15 +45,13 @@
   export default {
     name: 'Home',
     setup() {
-      // Reactive state using ref()
-      const profilePic = ref('@/assets/picture.jpg'); // Path to your profile image
+      const profilePic = ref('@/assets/picture.jpg');
       const name = ref('Manaswitha Ravu');
       const phone = ref('216-496-2565');
       const email = ref('manaswitha.ravu@gmail.com');
       const aboutText = ref(`A senior Frontend Engineer with 9+ years of experience in Frontend development, responsive web designing, web accessibility adhering to WCAG guidelines. Delivered high-quality web applications and user interfaces using HTML, CSS, and JavaScript, with expertise in frontend frameworks like React, Angular, and Vue & Node. A strong history of leading diverse web development teams in agile methodology. Experienced in leading and collaborating with cross-functional teams, providing technical guidance and mentorship in delivering a world- class user experience.`);
       const skills = ref(['HTML', 'Web Development', 'JavaScript', 'Vue', 'TypeScript', 'React', 'Angular','SCSS', 'Webbpack', 'ES6', 'WCAG', 'Material UI', 'Kendo UI','Story book', 'Figma', 'Jest', 'Jasmine', 'Karma', 'Node', 'SDLC', 'MySQL', 'Java Spring', 'Rest API']);
       
-      // Return all refs to the template
       return {
         profilePic,
         name,

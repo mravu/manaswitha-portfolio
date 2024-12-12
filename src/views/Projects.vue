@@ -2,7 +2,6 @@
     <div class="projects">
       <h1>My Experience</h1>
   
-      <!-- Project List -->
       <div class="project-list">
         <div v-for="project in sortedProjects" :key="project.id" class="project-item">
           <h2 class="project-title">{{ project.title }}</h2>
@@ -11,12 +10,10 @@
           </p>
           <p class="project-location">{{ project.location }}</p>
   
-          <!-- Expand/Collapse Button -->
           <button @click="toggleDescription(project.id)">
             {{ isExpanded[project.id] ? 'Collapse' : 'Expand' }}
           </button>
   
-          <!-- Display description points if expanded -->
           <div v-if="isExpanded[project.id]" class="project-description">
             <ul>
               <li v-for="(point, index) in project.description" :key="index">
@@ -32,11 +29,10 @@
   <script lang="ts">
   import { defineComponent, ref, computed } from 'vue';
   
-  // Define the type for a project
   interface Project {
     id: number;
     title: string;
-    description: string[]; // Array of points for description
+    description: string[];
     location: string;
     startDate: string;
     endDate: string;
@@ -45,7 +41,6 @@
   export default defineComponent({
     name: 'Projects',
     setup() {
-      // Define the project data using ref
       const projects = ref<Project[]>([
         {
           id: 1,
@@ -88,19 +83,15 @@
         },
       ]);
   
-      // Store the expanded/collapsed state by project id
       const isExpanded = ref<{ [key: number]: boolean }>({});
   
-      // Computed property to sort projects by start date
       const sortedProjects = computed(() => {
         return projects.value.sort((a, b) => {
           return new Date(a.startDate).getTime() - new Date(b.startDate).getTime();
         });
       });
   
-      // Toggle description visibility based on project id
       const toggleDescription = (projectId: number) => {
-        // Toggle the state for the project ID key
         isExpanded.value[projectId] = !isExpanded.value[projectId];
       };
   
@@ -139,7 +130,7 @@
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 20px;
-    flex-basis: calc(33.33% - 20px); /* Flexbox to make 3 cards in a row */
+    flex-basis: calc(33.33% - 20px);
     transition: transform 0.3s, box-shadow 0.3s;
     color: #052C58;
     box-sizing: border-box;
@@ -168,7 +159,7 @@
     list-style-type: disc;
     padding-left: 20px;
     color: #052C58;
-    word-wrap: break-word; /* Ensures long words break and wrap to the next line */
+    word-wrap: break-word;
   }
   
   .project-description li {
@@ -192,13 +183,13 @@
   
   @media (max-width: 1024px) {
     .project-item {
-      flex-basis: calc(50% - 20px); /* 50% width for medium screens */
+      flex-basis: calc(50% - 20px);
     }
   }
   
   @media (max-width: 768px) {
     .project-item {
-      flex-basis: 100%; /* 100% width for small screens */
+      flex-basis: 100%;
     }
   
     h1 {
